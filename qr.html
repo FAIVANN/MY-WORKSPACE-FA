@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AXXESS BAR — QR Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>AXXESS BAR — QR Generator</h1>
+    <p class="tag">Create a QR code that links to your published menu</p>
+  </header>
+  <main class="container">
+    <section id="qr-section">
+      <label for="siteUrl">Published site URL</label>
+      <div class="qr-controls">
+        <input id="siteUrl" type="text" value="https://example.com" aria-label="site url">
+        <button id="generate">Generate QR</button>
+      </div>
+      <div id="qrcode" class="qrcode" style="margin-top:12px"></div>
+      <p><a id="download" class="btn secondary" href="#">Download QR</a></p>
+      <p>For hosting instructions see the project <a href="README.md">README</a>.</p>
+    </section>
+  </main>
+  <footer class="site-footer">© AXXESS BAR</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const qrcodeEl = document.getElementById('qrcode');
+    const generateBtn = document.getElementById('generate');
+    const siteUrlInput = document.getElementById('siteUrl');
+    const downloadLink = document.getElementById('download');
+    let qr;
+
+    function makeQR(url) {
+      qrcodeEl.innerHTML = '';
+      qr = new QRCode(qrcodeEl, {
+        text: url,
+        width: 300,
+        height: 300,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      setTimeout(() => {
+        const img = qrcodeEl.querySelector('img');
+        if (img && img.src) {
+          downloadLink.href = img.src;
+        } else {
+          const canvas = qrcodeEl.querySelector('canvas');
+          if (canvas) downloadLink.href = canvas.toDataURL('image/png');
+        }
+      }, 150);
+    }
+
+    generateBtn.addEventListener('click', () => {
+      const url = (siteUrlInput.value || '').trim();
+      if (!url) return alert('Please enter your site URL');
+      makeQR(url);
+      downloadLink.download = 'axxessbar-menu-qr.png';
+    });
+
+    window.addEventListener('load', () => makeQR(siteUrlInput.value));
+  </script>
+</body>
+</html>

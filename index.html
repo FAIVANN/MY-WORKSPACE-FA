@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AXXESS BAR</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+    <div class="loader-logo">AXXESS BAR</div>
+    <p>Loading Menu...</p>
+</div>
+
+<!-- FLOATING BUBBLES -->
+<div class="bubbles">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+</div>
+
+<!-- LANDING HEADER -->
+<header id="landing">
+    <div class="hero-sun" aria-hidden="true"></div>
+    <div class="hero-card">
+        <div class="hero-row">
+            <div class="hero-logo">AXXESS BAR</div>
+            <div style="text-align:left">
+                <p class="tagline">Restaurant • Guest House • Beach Road, Sierra Leone</p>
+                <h1>Taste • Relax • Enjoy</h1>
+            </div>
+        </div>
+
+        <p class="hero-text">Scan the QR or browse our menu — fresh seafood, local favorites, and seaside rooms.</p>
+
+        <div class="hero-cta landing-menu">
+            <div class="menu-title-landing">AXXESS BAR MENU</div>
+            <div class="landing-links">
+                <button id="btn-food" class="cta-primary" onclick="showSection('food', document.getElementById('btn-food'))">🍽 Food</button>
+                <button id="btn-drinks" class="cta-ghost" onclick="showSection('drinks', document.getElementById('btn-drinks'))">🍹 Drinks</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- FOOD MENU -->
+<section id="food" class="menu-section hidden">
+    <div class="section-controls">
+        <button class="back-btn" onclick="showLanding()">← Back</button>
+        <button class="switch-btn" onclick="showSection('drinks', document.getElementById('btn-drinks'))">View Drinks →</button>
+    </div>
+    <h2 class="menu-title">🍽 Signature Food Menu</h2>
+
+    <div class="menu-list">
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍛 Jollof Rice & Chicken</h3>
+                <p>Rich tomato rice with grilled chicken.</p>
+            </div>
+            <div class="menu-price">Le 80</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🥘 Cassava Leaf & Rice</h3>
+                <p>Traditional Sierra Leone favorite.</p>
+            </div>
+            <div class="menu-price">Le 70</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍲 Groundnut Soup & Rice</h3>
+                <p>Creamy peanut soup with rice.</p>
+            </div>
+            <div class="menu-price">Le 75</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🐟 Grilled Fish & Rice</h3>
+                <p>Fresh fish from the coast.</p>
+            </div>
+            <div class="menu-price">Le 120</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍔 Burger & Fries</h3>
+                <p>Beef burger with crispy fries.</p>
+            </div>
+            <div class="menu-price">Le 110</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- DRINKS MENU -->
+<section id="drinks" class="menu-section hidden">
+    <div class="section-controls">
+        <button class="back-btn" onclick="showLanding()">← Back</button>
+        <button class="switch-btn" onclick="showSection('food', document.getElementById('btn-food'))">View Food →</button>
+    </div>
+    <h2 class="menu-title">🍹 Drinks Menu</h2>
+
+    <div class="menu-list">
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🥤 Soft Drink</h3>
+                <p>Ice-cold refreshing beverage.</p>
+            </div>
+            <div class="menu-price">Le 20</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍊 Orange Juice</h3>
+                <p>Freshly squeezed oranges.</p>
+            </div>
+            <div class="menu-price">Le 35</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍍 Pineapple Juice</h3>
+                <p>Sweet tropical refreshment.</p>
+            </div>
+            <div class="menu-price">Le 35</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>☕ Coffee</h3>
+                <p>Freshly brewed coffee.</p>
+            </div>
+            <div class="menu-price">Le 25</div>
+        </div>
+
+        <div class="menu-row">
+            <div class="menu-info">
+                <h3>🍹 Mojito</h3>
+                <p>Minty and refreshing.</p>
+            </div>
+            <div class="menu-price">Le 50</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/23273368292?text=Hello%20AXXESS%20BAR,%20I%20would%20like%20to%20place%20an%20order."
+class="whatsapp" target="_blank">
+💬 Order Now
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

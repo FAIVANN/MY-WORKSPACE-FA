@@ -1,0 +1,194 @@
+:root{
+    --blue-700: #005f99;
+    --blue-500: #0077b6;
+    --yellow-400: #ffd166;
+    --yellow-500: #ffcc00;
+    --muted: #475569;
+    --card: #ffffff;
+    --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    background: linear-gradient(180deg, #eaf6ff 0%, #fffef8 100%);
+    color:#0b2545;
+    -webkit-font-smoothing:antialiased;
+}
+
+/* Loader */
+#loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--blue-700),var(--blue-500));color:#fff;z-index:60}
+.loader-logo{font-weight:700;font-size:22px;letter-spacing:1px}
+#loader p{opacity:0.95;margin-top:8px}
+
+/* Decorative bubbles */
+.bubbles{position:fixed;right:-40px;top:80px;pointer-events:none;z-index:5}
+.bubbles span{display:block;width:18px;height:18px;background:var(--yellow-400);border-radius:50%;opacity:.9;margin:8px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08))}
+
+/* Header / landing */
+#landing{
+    min-height:68vh;
+    padding:48px 16px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background: radial-gradient(1200px 500px at 10% 20%, rgba(0,119,182,0.12), transparent 10%),
+                            radial-gradient(900px 400px at 90% 80%, rgba(255,204,0,0.08), transparent 10%),
+                            linear-gradient(180deg, rgba(0,119,182,0.04), rgba(255,249,240,0.04));
+}
+.logo{font-size:28px;font-weight:800;color:var(--blue-700);letter-spacing:1px}
+.tagline{color:var(--muted);margin:8px 0 14px}
+#landing h1{font-size:44px;margin:6px 0;color:var(--blue-700);font-weight:800}
+.hero-text{color:var(--muted);margin-top:8px}
+
+/* Hero card (glass) */
+.hero-card{max-width:980px;margin:18px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.5));box-shadow:0 20px 60px rgba(11,37,69,0.08);border:1px solid rgba(255,255,255,0.6);backdrop-filter: blur(8px) saturate(120%);-webkit-backdrop-filter: blur(8px) saturate(120%);display:flex;flex-direction:column;align-items:center;gap:12px}
+
+.hero-row{display:flex;gap:12px;align-items:center}
+.hero-logo{font-size:18px;font-weight:800;color:var(--blue-700);padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--yellow-400),var(--yellow-500));color:#072126}
+
+.hero-cta{display:flex;gap:12px;margin-top:8px}
+.cta-primary{background:var(--blue-500);color:#fff;padding:12px 18px;border-radius:12px;border:0;font-weight:700;box-shadow:0 12px 30px rgba(0,119,182,0.16);text-decoration:none}
+.cta-ghost{background:transparent;border:2px solid rgba(0,119,182,0.12);padding:10px 16px;border-radius:12px;color:var(--blue-700);text-decoration:none;font-weight:700}
+.cta-primary:hover{transform:translateY(-4px)}
+
+/* small non-clickable menu label shown next to CTA */
+.menu-label{align-self:center;padding:6px 10px;border-radius:8px;font-weight:700;color:var(--blue-700);background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));border:1px solid rgba(0,119,182,0.06);text-transform:lowercase}
+
+/* Landing menu title and links */
+.landing-menu{display:flex;flex-direction:column;align-items:center;gap:12px}
+.menu-title-landing{font-size:22px;font-weight:900;color:var(--blue-700);letter-spacing:1px;text-transform:uppercase;background:linear-gradient(90deg,var(--yellow-400),var(--yellow-500));-webkit-background-clip:text;background-clip:text;color:transparent}
+.landing-links{display:flex;gap:12px}
+.landing-links .cta-primary{padding:10px 14px}
+.landing-links .cta-ghost{padding:10px 14px}
+
+/* small decorative sun */
+.hero-sun{position:absolute;right:6%;top:6%;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--yellow-500), var(--yellow-400));filter:blur(10px);opacity:0.9;z-index:0}
+
+/* adjust stacking so hero content sits above decorations */
+.hero-card, #landing .logo, #landing h1, .menu-buttons{position:relative;z-index:2}
+
+@media(max-width:720px){
+    #landing h1{font-size:32px}
+    .hero-card{padding:18px;border-radius:14px}
+    .hero-row{flex-direction:column}
+    .hero-sun{display:none}
+}
+
+.container{max-width:940px;margin:20px auto;padding:0 16px}
+
+/* Menu buttons */
+.menu-buttons{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.menu-buttons button{background:var(--blue-500);color:#fff;border:0;padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,119,182,0.12);transition:transform .12s ease,box-shadow .12s ease}
+.menu-buttons button:hover{transform:translateY(-3px)}
+.menu-buttons button.active{background:var(--yellow-500);color:#002d3b;box-shadow:0 8px 24px rgba(255,204,0,0.14)}
+
+/* Menu sections */
+.menu-section{background:var(--card);border-radius:12px;padding:18px;margin:18px 0;box-shadow:0 6px 24px rgba(11,37,69,0.06)}
+.menu-title{margin-top:0;color:var(--blue-700)}
+.menu-list{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.menu-row{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;border:1px solid rgba(11,37,69,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,252,0.6));opacity:0;transform:translateY(14px);animation:itemIn .45s ease forwards;animation-delay:var(--delay,0s)}
+.menu-info h3{margin:0;font-size:16px}
+.menu-info p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.menu-price{font-weight:700;color:var(--blue-700)}
+
+/* Section controls inside each menu */
+.section-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.back-btn{background:transparent;border:0;color:var(--blue-700);font-weight:700;cursor:pointer;padding:8px 10px;border-radius:8px}
+.back-btn:hover{background:rgba(0,119,182,0.06)}
+.switch-btn{background:var(--blue-500);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+.switch-btn:hover{transform:translateY(-3px)}
+
+/* item entrance animation */
+@keyframes itemIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* Landing fade-in */
+.fade-in{animation:fadeIn .45s ease forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* subtle hover for menu rows */
+.menu-row:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(11,37,69,0.06)}
+
+/* WhatsApp floating */
+.whatsapp{position:fixed;right:18px;bottom:18px;background:linear-gradient(180deg,var(--yellow-400),var(--yellow-500));color:#002d3b;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(255,204,0,0.12)}
+
+/* Hidden state and animations */
+.hidden{display:none;opacity:0}
+.fade-out{animation:fadeOut .45s ease forwards}
+.menu-section{animation:fadeSlide .6s ease forwards}
+
+@keyframes fadeSlide{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+
+/* Responsive */
+@media (min-width:900px){
+    .menu-list{gap:14px}
+    .menu-row{padding:16px}
+}
+
+@media (max-width:480px){
+    #landing h1{font-size:28px}
+    .menu-buttons{flex-direction:column}
+}
+
+/* small utility */
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none}
+
+/* Tri-fold brochure look: make menu list flow into 3 columns on wide screens */
+.menu-section{
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    border-radius:16px;
+    padding:20px;
+}
+
+.menu-list{display:grid;grid-template-columns:1fr;gap:12px;margin-top:10px}
+@media (min-width:900px){
+    .menu-list{grid-template-columns:repeat(3,1fr);gap:18px}
+    /* slightly separate panels like a tri-fold */
+    .menu-section{padding:28px;border-radius:18px}
+}
+
+/* Make each card look glassy and brochure-like */
+.menu-row{
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    padding:12px;
+    display:flex;justify-content:space-between;align-items:center;
+    box-shadow: 0 8px 24px rgba(11,37,69,0.08);
+    transition:transform .18s ease,box-shadow .18s ease;
+}
+
+.menu-row .emoji{font-size:20px;margin-right:8px}
+.menu-info{display:flex;align-items:flex-start;gap:8px}
+
+.menu-info h3{margin:0;font-size:15px}
+.menu-info p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+.menu-row:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,37,69,0.12)}
+
+/* Emphasize prices with yellow badge */
+.menu-price{font-weight:800;color:#002d3b;background:linear-gradient(90deg,var(--yellow-400),var(--yellow-500));padding:6px 10px;border-radius:8px;color:#072126}
+
+/* section controls alignment for brochure header */
+.section-controls{gap:12px}
+
+/* subtle divider for tri-fold look on wide screens */
+.menu-section::before{
+    content:'';display:none;
+}
+@media(min-width:1100px){
+    /* draw faint fold lines */
+    .menu-section{background:linear-gradient(90deg, rgba(0,87,140,0.06) 0%, rgba(255,255,255,0.02) 33%, rgba(255,255,255,0.02) 66%, rgba(0,87,140,0.06) 100%)}
+    .menu-section::before{display:block}
+}
+
+/* Improve back/switch buttons visuals for brochure */
+.back-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px}
+.switch-btn{padding:8px 12px}
+
